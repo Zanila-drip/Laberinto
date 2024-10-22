@@ -1,23 +1,51 @@
 import 'dart:io';
+/*
+Paso 1:
+        Lea el archivo proporcionado para la tarea.
+        Realice un recuento de caracteres de la primera línea del archivo.
+        En función del número de caracteres (llamémoslo 'm'), cree una matriz mxm.
+*/
 void main()
-{
-  //Lea el archivo proporcionado para la tarea.
+async{
   File file = new File('pruebaUno.txt');
 
-  final List<int> matrix = [];
-  //Funcion para realizar la lectura del archivo!
-  void readFilesByLinesAsync(file,matrix)
+
+
+  List<List<int>> matrix = List.generate(2,(_)=>[]);
+  print(matrix);
+
+
+
+
+
+
+
+
+
+  
+
+
+  void readFilesByLinesAsync(file, matrix)
   {
     List<String> lines = file.readAsLinesSync();
-    //Realice un recuento de caracteres de la primera línea del archivo.
-    var numero = lines.length;
-    for (String cadena in lines){
+    int numero = lines.length;
+    for (String cadena in lines) {
       matrix.add(int.parse(cadena));
     }
-    print("El nuemero de caracteres que se encuentran en el archivo es de: $numero");
+
+
   }
-  //Recibe como argumento el archivo y la matriz que queremos que se almacene!
-  readFilesByLinesAsync(file,matrix);
-  List<int> matrizPorMatriz = [];
-  print (matrizPorMatriz);
+  void crearMatriz(File file,matrix)
+  {
+    List<String> lines = file.readAsLinesSync();
+    int numero = lines.length;
+    for(int i = 0; i<=numero;i++)
+    {
+      matrix.add(9);
+
+    }
+    print(matrix);
+  }
+
+
 }
