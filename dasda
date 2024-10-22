@@ -1,0 +1,152 @@
+[33mcommit 00e2e531d01ac4ff274be67fc12ee7769a7228b2[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: Zanila-drip <mleo0499@gmail.com>
+Date:   Mon Oct 21 19:07:48 2024 -0600
+
+    Diosanto de mi vida, matrices que asco
+
+[1mdiff --git a/.idea/misc.xml b/.idea/misc.xml[m
+[1mindex 639900d..6e86672 100644[m
+[1m--- a/.idea/misc.xml[m
+[1m+++ b/.idea/misc.xml[m
+[36m@@ -1,4 +1,3 @@[m
+[31m-<?xml version="1.0" encoding="UTF-8"?>[m
+ <project version="4">[m
+   <component name="ProjectRootManager">[m
+     <output url="file://$PROJECT_DIR$/out" />[m
+[1mdiff --git a/lib/laberinto.dart b/lib/laberinto.dart[m
+[1mnew file mode 100644[m
+[1mindex 0000000..203baea[m
+[1m--- /dev/null[m
+[1m+++ b/lib/laberinto.dart[m
+[36m@@ -0,0 +1,17 @@[m
+[32m+[m[32mimport 'dart:math';[m
+[32m+[m[32mimport 'dart:io';[m
+[32m+[m[32mvoid main()[m
+[32m+[m[32m{[m
+[32m+[m[32m  File file = File('pruebaUno.txt');[m
+[32m+[m[32m  List<String> archivos = file.readAsLinesSync();[m
+[32m+[m[32m  int contador = archivos.length;[m
+[32m+[m[32m  List<int> matriz = [];[m
+[32m+[m
+[32m+[m[32m  for(int i=0;i<=contador;i++)[m
+[32m+[m[32m    {[m
+[32m+[m[32m      matriz.add(int.parse(archivos[i]));[m
+[32m+[m[32m    }[m
+[32m+[m[32m  print(matriz);[m
+[32m+[m
+[32m+[m
+[32m+[m[32m}[m
+[1mdiff --git a/lib/main.dart b/lib/main.dart[m
+[1mindex 9cc452a..785ecca 100644[m
+[1m--- a/lib/main.dart[m
+[1m+++ b/lib/main.dart[m
+[36m@@ -1,11 +1,7 @@[m
+ import 'dart:io';[m
+ void main()[m
+ async{[m
+[31m-  //Paso 1.1Lectura del archivo[m
+   var archivo = File('pruebaUno.txt');[m
+[31m-  //Paso 1.2Recuento de caracteres de la primera linea del archivo[m
+[31m-  //Con esto se el numero total de caracteres que contiene el archivo[m
+[31m-  //Con esto convierto en una Lista mi txt[m
+   var numeroDos = await archivo.readAsLines();[m
+   int numero = numeroDos.length;[m
+   //Paso 1.3Lugar de caracteres que ocupa cada linea[m
+[1mdiff --git a/lib/pruebaDos.dart b/lib/pruebaDos.dart[m
+[1mnew file mode 100644[m
+[1mindex 0000000..e69de29[m
+[1mdiff --git a/lib/pruebaDos.txt b/lib/pruebaDos.txt[m
+[1mnew file mode 100644[m
+[1mindex 0000000..9a1dec5[m
+[1m--- /dev/null[m
+[1m+++ b/lib/pruebaDos.txt[m
+[36m@@ -0,0 +1,3 @@[m
+[32m+[m[32m7 4 4[m
+[32m+[m[32m8 5 6[m
+[32m+[m[32m2 6 4[m
+\ No newline at end of file[m
+[1mdiff --git a/lib/pruebaUno.dart b/lib/pruebaUno.dart[m
+[1mindex 9553733..335d7a2 100644[m
+[1m--- a/lib/pruebaUno.dart[m
+[1m+++ b/lib/pruebaUno.dart[m
+[36m@@ -1,23 +1,51 @@[m
+ import 'dart:io';[m
+[32m+[m[32m/*[m
+[32m+[m[32mPaso 1:[m
+[32m+[m[32m        Lea el archivo proporcionado para la tarea.[m
+[32m+[m[32m        Realice un recuento de caracteres de la primera línea del archivo.[m
+[32m+[m[32m        En función del número de caracteres (llamémoslo 'm'), cree una matriz mxm.[m
+[32m+[m[32m*/[m
+ void main()[m
+[31m-{[m
+[31m-  //Lea el archivo proporcionado para la tarea.[m
+[32m+[m[32masync{[m
+   File file = new File('pruebaUno.txt');[m
+ [m
+[31m-  final List<int> matrix = [];[m
+[31m-  //Funcion para realizar la lectura del archivo![m
+[31m-  void readFilesByLinesAsync(file,matrix)[m
+[32m+[m
+[32m+[m
+[32m+[m[32m  List<List<int>> matrix = List.generate(2,(_)=>[]);[m
+[32m+[m[32m  print(matrix);[m
+[32m+[m
+[32m+[m
+[32m+[m
+[32m+[m
+[32m+[m
+[32m+[m
+[32m+[m
+[32m+[m
+[32m+[m
+[32m+[m[41m  [m
+[32m+[m
+[32m+[m
+[32m+[m[32m  void readFilesByLinesAsync(file, matrix)[m
+   {[m
+     List<String> lines = file.readAsLinesSync();[m
+[31m-    //Realice un recuento de caracteres de la primera línea del archivo.[m
+[31m-    var numero = lines.length;[m
+[31m-    for (String cadena in lines){[m
+[32m+[m[32m    int numero = lines.length;[m
+[32m+[m[32m    for (String cadena in lines) {[m
+       matrix.add(int.parse(cadena));[m
+     }[m
+[31m-    print("El nuemero de caracteres que se encuentran en el archivo es de: $numero");[m
+[32m+[m
+[32m+[m
+   }[m
+[31m-  //Recibe como argumento el archivo y la matriz que queremos que se almacene![m
+[31m-  readFilesByLinesAsync(file,matrix);[m
+[31m-  List<int> matrizPorMatriz = [];[m
+[31m-  print (matrizPorMatriz);[m
+[31m-}[m
+\ No newline at end of file[m
+[32m+[m[32m  void crearMatriz(File file,matrix)[m
+[32m+[m[32m  {[m
+[32m+[m[32m    List<String> lines = file.readAsLinesSync();[m
+[32m+[m[32m    int numero = lines.length;[m
+[32m+[m[32m    for(int i = 0; i<=numero;i++)[m
+[32m+[m[32m    {[m
+[32m+[m[32m      matrix.add(9);[m
+[32m+[m
+[32m+[m[32m    }[m
+[32m+[m[32m    print(matrix);[m
+[32m+[m[32m  }[m
+[32m+[m
+[32m+[m
+[32m+[m[32m}[m
+[1mdiff --git a/lib/pruebaUno.txt b/lib/pruebaUno.txt[m
+[1mindex a8f9b5b..fe60785 100644[m
+[1m--- a/lib/pruebaUno.txt[m
+[1m+++ b/lib/pruebaUno.txt[m
+[36m@@ -1,4 +1,6 @@[m
+ 3[m
+[31m-2[m
+[31m-3[m
+[32m+[m[32m4[m
+[32m+[m[32m1[m
+[32m+[m[32m4[m
+ 5[m
+[32m+[m[32m6[m
+\ No newline at end of file[m
